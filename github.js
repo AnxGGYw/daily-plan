@@ -6,7 +6,7 @@ const { handleResponse, exist } = require('./utils')
 const isLocal = process.env.MODE === 'local'
 
 const token = isLocal ? fs.readFileSync('./token.txt', { encoding: 'utf8' }) : process.env['token']
-
+console.log(token)
 // octokit instance
 const octokit = new Octokit({ auth: token })
 
