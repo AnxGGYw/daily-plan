@@ -1,11 +1,14 @@
 const { Octokit } = require('@octokit/core')
 const fs = require('fs')
 const { handleResponse, exist } = require('./utils')
+const core = require('@actions/core')
 
 // check isLocal
 const isLocal = process.env.MODE === 'local'
 
-const token = isLocal ? fs.readFileSync('./token.txt', { encoding: 'utf8' }) : process.env['token']
+const token = isLocal
+  ? fs.readFileSync('./token.txt', { encoding: 'utf8' })
+  : core.getInput('token')
 console.log(token)
 // octokit instance
 const octokit = new Octokit({ auth: token })
