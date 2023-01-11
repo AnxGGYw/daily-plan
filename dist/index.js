@@ -11,9 +11,7 @@ const { handleResponse, exist } = __nccwpck_require__(252)
 // check isLocal
 const isLocal = process.env.MODE === 'local'
 
-const token = isLocal
-  ? fs.readFileSync('./token.txt', { encoding: 'utf8' })
-  : process.env['G_TOKEN']
+const token = isLocal ? fs.readFileSync('./token.txt', { encoding: 'utf8' }) : process.env['token']
 
 // octokit instance
 const octokit = new Octokit({ auth: token })
