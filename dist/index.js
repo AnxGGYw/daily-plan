@@ -11,8 +11,6 @@ const { handleResponse, exist } = __nccwpck_require__(252)
 // check isLocal
 const isLocal = process.env.MODE === 'local'
 
-console.log(isLocal)
-
 const token = isLocal
   ? fs.readFileSync('./token.txt', { encoding: 'utf8' })
   : process.env['G_TOKEN']

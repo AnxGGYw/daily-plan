@@ -5,8 +5,6 @@ const { handleResponse, exist } = require('./utils')
 // check isLocal
 const isLocal = process.env.MODE === 'local'
 
-console.log(isLocal)
-
 const token = isLocal
   ? fs.readFileSync('./token.txt', { encoding: 'utf8' })
   : process.env['G_TOKEN']
